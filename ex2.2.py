@@ -1,10 +1,13 @@
-list_ = list(input().split())
-len_group = int(list_[0])
+list_ = input().split()
+step = int(list_[0])
 word_str = list_[1]
 word = []
 for elem in word_str:
     word += elem
-for i in range(0, len(word), len_group):
-    word[i], word[i+len_group-1] = word[i+len_group-1], word[i]
-new_word = ''.join(word)
+new_word = ''
+for i in range(0, len(word), step):
+    piece = ''
+    for letter in word[i:step+i]:
+        piece = letter + piece
+    new_word += piece
 print(new_word)
