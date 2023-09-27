@@ -11,9 +11,21 @@ def NOD(a, b):
         return 0, 1, nod
     elif nod == 1:
         if c > d:
-            return d, -c+1, nod
+            if c - d == 1:
+                return d, -c+1, nod
+            else:
+                k = 1
+                while k*d-(k-1)*c!=nod:
+                    k+=1
+                return -k+1, k, nod
         else:
-            return -c+1, d, nod
+            if d -c == 1:
+                return -c+1, d, nod
+            else:
+                k = 1
+                while k*c-(k-1)*d!=nod:
+                    k+=1
+                return k, -k+1, nod
     elif d == nod:
         return 0, 1, nod
     elif c == nod:
