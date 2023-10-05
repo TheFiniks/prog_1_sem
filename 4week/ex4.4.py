@@ -12,20 +12,11 @@ def MNK(xdata, ydata):
     return a, b
 
 
-with open('iris-data.txt', 'r') as f:
-    data = f.readlines()
-l = 150
-Petal = [['0'] * 2 for i in range(l)]
-Petal_L = [float(line.split(',')[1]) for line in data[1:]]
-Petal_W = [float(line.split(',')[2]) for line in data[1:]]
-for j in range(l):
-    Petal[j][0]=Petal_L[j]
-    Petal[j][1]=Petal_W[j]
-Petal = sorted(Petal)
-Petal_L = [float(line[0]) for line in Petal]
-Petal_W = [float(line[1]) for line in Petal]
-Sepal_L = [float(line.split(',')[3]) for line in data[1:]]
-Sepal_W = [float(line.split(',')[4]) for line in data[1:]]
+data = pd.read_csv('iris_data.csv')
+Petal_L = list(data['SepalLengthCm'])
+Petal_W = list(data['SepalWidthCm'])
+Sepal_L = list(data['PetalLengthCm'])
+Sepal_W = list(data['PetalWidthCm'])
 a_P, b_P = MNK(Petal_W, Petal_L)
 a_S, b_S = MNK(Sepal_W, Sepal_L)
 xdata = np.arange(0, 5, 0.1)

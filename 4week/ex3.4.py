@@ -1,9 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-with open('iris-data.txt', 'r') as f:
-    data = f.readlines()
-iris_length = [float(line.split(',')[3]) for line in data[1:]]
+data = pd.read_csv('iris_data.csv')
+iris_length = list(data['PetalLengthCm'])
 less = 0
 more_and_less = 0
 more = 0
