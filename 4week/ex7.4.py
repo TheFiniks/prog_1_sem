@@ -17,9 +17,11 @@ for word in list_words:
         d[word] = 1
 sort_d_keys = sorted(list(d.values()))[::-1]
 max_d, count_ = 0, 0
-for i in range(0, 10):
+output=[]
+for i in sort_d_keys:
     for key in list(d.keys()):
-        if d[key] == sort_d_keys[i] and count_!=10:
-            print(d[key], key)
+        if d[key] == i and count_!=10 and key not in output:
+            output.append(key)
+            print(key,d[key])
             count_ += 1
 
