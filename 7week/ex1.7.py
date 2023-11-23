@@ -33,7 +33,7 @@ class Vector():
             return Vector(self.x * other, self.y * other, self.z * other)
 
     def __str__(self):
-        return f'x = {self.x:.{2}f} y = {self.y:.{2}f} z = {self.z:.{2}}'
+        return f'x = {self.x} y = {self.y} z = {self.z}'
 
 
 print('Enter vector as: x y z')
@@ -43,7 +43,7 @@ print(f'Vector length: {abs(v1):.{2}f}')
 print('Enter a second vector in the same format or a number')
 vector = list(map(float, input().split()))
 if len(vector) == 1:
-    v2 = vector
+    v2 = vector[0]
     print('What action do you want to perform on a vector and a number?: -,+,*?')
 else:
     v2 = Vector(*vector)
