@@ -5,8 +5,8 @@ Priority = {'+': 1, '-': 1, '*': 2, '/': 2, '^': 3}
 def convert(string):
     exp = []
     for letter in string:
-        if letter in '0123456789':
-            if exp[-1] in '0123456789':
+        if letter.isdigit():
+            if exp[-1].isdigit():
                 exp[-1] = exp[-1] + letter
             else:
                 exp.append(letter)
